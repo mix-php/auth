@@ -32,7 +32,7 @@ class Authorization extends Component
     {
         $token = $this->bearerToken->handle();
         if (!$token) {
-            throw new \InvalidArgumentException('Unable to get token from header.');
+            throw new \InvalidArgumentException('Failed to get bearer token.');
         }
         return $this->jwt->parser($token);
     }
