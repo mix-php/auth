@@ -1,5 +1,5 @@
 {
-  "name": "mix/simple-token",
+  "name": "mix/auth",
   "description": "MixPHP 框架模块 http://www.mixphp.cn",
   "type": "framework",
   "keywords": [
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Mix\\SimpleToken\\": "src/"
+      "Mix\\Auth\\": "src/"
     }
   }
 }
