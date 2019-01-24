@@ -11,15 +11,9 @@ interface BearerTokenInterface
 {
 
     /**
-     * 获取
-     * @return string|bool
+     * 处理
+     * @return bool|string
      */
-    public function get();
-
-    /**
-     * 创建
-     * @return string
-     */
-    public function create();
+    public function handle();
 
 }
