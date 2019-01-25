@@ -19,7 +19,7 @@ class JWT extends Component
     const ALGORITHM_RS256 = 'RS256';
 
     /**
-     * 秘钥
+     * 钥匙
      * @var string
      */
     public $key = '';
