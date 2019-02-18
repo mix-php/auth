@@ -2,7 +2,7 @@
 
 namespace Mix\Auth;
 
-use Mix\Core\Component;
+use Mix\Core\Component\Component;
 
 /**
  * Class JWT
