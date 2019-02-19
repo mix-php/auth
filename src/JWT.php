@@ -2,14 +2,14 @@
 
 namespace Mix\Auth;
 
-use Mix\Core\Component\Component;
+use Mix\Core\Component\AbstractComponent;
 
 /**
  * Class JWT
  * @author LIUJIAN <coder.keda@gmail.com>
  * @package Mix\Auth
  */
-class JWT extends Component
+class JWT extends AbstractComponent
 {
 
     /**

@@ -2,14 +2,14 @@
 
 namespace Mix\Auth;
 
-use Mix\Core\Component\Component;
+use Mix\Core\Component\AbstractComponent;
 
 /**
  * Class Authorization
  * @author LIUJIAN <coder.keda@gmail.com>
  * @package Mix\Auth
  */
-class Authorization extends Component
+class Authorization extends AbstractComponent
 {
 
     /**
