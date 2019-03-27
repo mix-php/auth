@@ -4,7 +4,7 @@ namespace Mix\Auth;
 
 /**
  * Interface BearerTokenInterface
- * @author LIUJIAN <coder.keda@gmail.com>
+ * @author liu,jian <coder.keda@gmail.com>
  * @package Mix\Auth
  */
 interface BearerTokenInterface
