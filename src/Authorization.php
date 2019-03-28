@@ -6,17 +6,17 @@ use Mix\Core\Component\AbstractComponent;
 
 /**
  * Class Authorization
- * @author liu,jian <coder.keda@gmail.com>
  * @package Mix\Auth
+ * @author liu,jian <coder.keda@gmail.com>
  */
 class Authorization extends AbstractComponent
 {
 
     /**
-     * BearerToken
-     * @var \Mix\Auth\BearerTokenInterface
+     * token提取器
+     * @var \Mix\Auth\TokenExtractorInterface
      */
-    public $bearerToken;
+    public $tokenExtractor;
 
     /**
      * jwt
@@ -30,7 +30,7 @@ class Authorization extends AbstractComponent
      */
     public function getPayload()
     {
-        $token = $this->bearerToken->handle();
+        $token = $this->tokenExtractor->extractToken();
         if (!$token) {
             throw new \InvalidArgumentException('Failed to get bearer token.');
         }

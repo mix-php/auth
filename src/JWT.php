@@ -6,8 +6,8 @@ use Mix\Core\Component\AbstractComponent;
 
 /**
  * Class JWT
- * @author liu,jian <coder.keda@gmail.com>
  * @package Mix\Auth
+ * @author liu,jian <coder.keda@gmail.com>
  */
 class JWT extends AbstractComponent
 {
