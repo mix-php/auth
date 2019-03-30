@@ -51,10 +51,10 @@ class JWT extends AbstractComponent
     {
         switch ($this->algorithm) {
             case self::ALGORITHM_HS256:
-                return (array)\Firebase\JWT\JWT::decode($token, $this->key, ['HS256']);
+                return \Firebase\JWT\JWT::decode($token, $this->key, ['HS256']);
                 break;
             case self::ALGORITHM_RS256:
-                return (array)\Firebase\JWT\JWT::decode($token, $this->publicKey, ['RS256']);
+                return \Firebase\JWT\JWT::decode($token, $this->publicKey, ['RS256']);
                 break;
             default:
                 throw new \InvalidArgumentException('Invalid signature algorithm.');
