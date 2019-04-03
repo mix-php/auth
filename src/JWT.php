@@ -40,7 +40,7 @@ class JWT extends AbstractComponent
      * 签名算法
      * @var string
      */
-    public $algorithm = '';
+    public $algorithm = self::ALGORITHM_HS256;
 
     /**
      * 获取有效载荷
@@ -50,10 +50,10 @@ class JWT extends AbstractComponent
     public function parser($token)
     {
         switch ($this->algorithm) {
-            case static::ALGORITHM_HS256:
+            case self::ALGORITHM_HS256:
                 return \Firebase\JWT\JWT::decode($token, $this->key, ['HS256']);
                 break;
-            case static::ALGORITHM_RS256:
+            case self::ALGORITHM_RS256:
                 return \Firebase\JWT\JWT::decode($token, $this->publicKey, ['RS256']);
                 break;
             default:
@@ -69,10 +69,10 @@ class JWT extends AbstractComponent
     public function create($payload)
     {
         switch ($this->algorithm) {
-            case static::ALGORITHM_HS256:
+            case self::ALGORITHM_HS256:
                 return \Firebase\JWT\JWT::encode($payload, $this->key, 'HS256');
                 break;
-            case static::ALGORITHM_RS256:
+            case self::ALGORITHM_RS256:
                 return \Firebase\JWT\JWT::encode($payload, $this->privateKey, 'RS256');
                 break;
             default:
