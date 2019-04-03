@@ -45,7 +45,7 @@ class JWT extends AbstractComponent
     /**
      * 获取有效载荷
      * @param $token
-     * @return mixed
+     * @return object
      */
     public function parser($token)
     {

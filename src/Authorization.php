@@ -26,7 +26,7 @@ class Authorization extends AbstractComponent
 
     /**
      * 获取有效荷载
-     * @return array
+     * @return object
      */
     public function getPayload()
     {
