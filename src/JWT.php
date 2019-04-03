@@ -16,7 +16,11 @@ class JWT extends AbstractComponent
      * 签名算法常量
      */
     const ALGORITHM_HS256 = 'HS256';
+    const ALGORITHM_HS384 = 'HS384';
+    const ALGORITHM_HS512 = 'HS512';
     const ALGORITHM_RS256 = 'RS256';
+    const ALGORITHM_RS384 = 'RS384';
+    const ALGORITHM_RS512 = 'RS512';
 
     /**
      * 钥匙
@@ -51,10 +55,14 @@ class JWT extends AbstractComponent
     {
         switch ($this->algorithm) {
             case self::ALGORITHM_HS256:
-                return \Firebase\JWT\JWT::decode($token, $this->key, ['HS256']);
+            case self::ALGORITHM_HS384:
+            case self::ALGORITHM_HS512:
+                return \Firebase\JWT\JWT::decode($token, $this->key, [$this->algorithm]);
                 break;
             case self::ALGORITHM_RS256:
-                return \Firebase\JWT\JWT::decode($token, $this->publicKey, ['RS256']);
+            case self::ALGORITHM_RS384:
+            case self::ALGORITHM_RS512:
+                return \Firebase\JWT\JWT::decode($token, $this->publicKey, [$this->algorithm]);
                 break;
             default:
                 throw new \InvalidArgumentException('Invalid signature algorithm.');
@@ -70,10 +78,14 @@ class JWT extends AbstractComponent
     {
         switch ($this->algorithm) {
             case self::ALGORITHM_HS256:
-                return \Firebase\JWT\JWT::encode($payload, $this->key, 'HS256');
+            case self::ALGORITHM_HS384:
+            case self::ALGORITHM_HS512:
+                return \Firebase\JWT\JWT::encode($payload, $this->key, $this->algorithm);
                 break;
             case self::ALGORITHM_RS256:
-                return \Firebase\JWT\JWT::encode($payload, $this->privateKey, 'RS256');
+            case self::ALGORITHM_RS384:
+            case self::ALGORITHM_RS512:
+                return \Firebase\JWT\JWT::encode($payload, $this->privateKey, $this->algorithm);
                 break;
             default:
                 throw new \InvalidArgumentException('Invalid signature algorithm.');
