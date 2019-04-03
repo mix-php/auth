@@ -32,7 +32,7 @@ class Authorization extends AbstractComponent
     {
         $token = $this->tokenExtractor->extractToken();
         if (!$token) {
-            throw new \InvalidArgumentException('Failed to get bearer token.');
+            throw new \InvalidArgumentException('Failed to extract token.');
         }
         return $this->jwt->parser($token);
     }
