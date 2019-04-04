@@ -26,7 +26,7 @@ class Authorization extends AbstractComponent
 
     /**
      * 获取有效荷载
-     * @return object
+     * @return array
      */
     public function getPayload()
     {
@@ -39,10 +39,10 @@ class Authorization extends AbstractComponent
 
     /**
      * 创建token
-     * @param $payload
+     * @param array $payload
      * @return string
      */
-    public function createToken($payload)
+    public function createToken(array $payload)
     {
         return $this->jwt->create($payload);
     }

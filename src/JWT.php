@@ -49,7 +49,7 @@ class JWT extends AbstractComponent
     /**
      * 获取有效载荷
      * @param $token
-     * @return object
+     * @return array
      */
     public function parser($token)
     {
@@ -57,12 +57,12 @@ class JWT extends AbstractComponent
             case self::ALGORITHM_HS256:
             case self::ALGORITHM_HS384:
             case self::ALGORITHM_HS512:
-                return \Firebase\JWT\JWT::decode($token, $this->key, [$this->algorithm]);
+                return (array)\Firebase\JWT\JWT::decode($token, $this->key, [$this->algorithm]);
                 break;
             case self::ALGORITHM_RS256:
             case self::ALGORITHM_RS384:
             case self::ALGORITHM_RS512:
-                return \Firebase\JWT\JWT::decode($token, $this->publicKey, [$this->algorithm]);
+                return (array)\Firebase\JWT\JWT::decode($token, $this->publicKey, [$this->algorithm]);
                 break;
             default:
                 throw new \InvalidArgumentException('Invalid signature algorithm.');
@@ -71,10 +71,10 @@ class JWT extends AbstractComponent
 
     /**
      * 创建Token
-     * @param $payload
+     * @param array $payload
      * @return string
      */
-    public function create($payload)
+    public function create(array $payload)
     {
         switch ($this->algorithm) {
             case self::ALGORITHM_HS256:
