@@ -16,7 +16,7 @@ class BearerTokenExtractor implements TokenExtractorInterface
      */
     public function extractToken()
     {
-        $authorization = app()->request->header('authorization');
+        $authorization = \Mix::$app->request->header('authorization');
         if (strpos($authorization, 'Bearer ') !== 0) {
             return false;
         }
