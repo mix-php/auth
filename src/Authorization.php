@@ -2,7 +2,7 @@
 
 namespace Mix\Auth;
 
-use Mix\Core\Component\AbstractComponent;
+use Mix\Component\AbstractComponent;
 
 /**
  * Class Authorization
