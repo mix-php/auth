@@ -1,15 +1,14 @@
 <?php
 
 namespace Mix\Auth;
-
-use Mix\Component\AbstractComponent;
+use Mix\Bean\BeanInjector;
 
 /**
  * Class JWT
  * @package Mix\Auth
  * @author liu,jian <coder.keda@gmail.com>
  */
-class JWT extends AbstractComponent
+class JWT
 {
 
     /**
@@ -45,6 +44,15 @@ class JWT extends AbstractComponent
      * @var string
      */
     public $algorithm = self::ALGORITHM_HS256;
+
+    /**
+     * Authorization constructor.
+     * @param array $config
+     */
+    public function __construct(array $config)
+    {
+        BeanInjector::inject($this, $config);
+    }
 
     /**
      * 获取有效载荷

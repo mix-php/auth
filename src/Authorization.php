@@ -2,14 +2,14 @@
 
 namespace Mix\Auth;
 
-use Mix\Component\AbstractComponent;
+use Mix\Bean\BeanInjector;
 
 /**
  * Class Authorization
  * @package Mix\Auth
  * @author liu,jian <coder.keda@gmail.com>
  */
-class Authorization extends AbstractComponent
+class Authorization
 {
 
     /**
@@ -23,6 +23,15 @@ class Authorization extends AbstractComponent
      * @var \Mix\Auth\JWT
      */
     public $jwt;
+
+    /**
+     * Authorization constructor.
+     * @param array $config
+     */
+    public function __construct(array $config)
+    {
+        BeanInjector::inject($this, $config);
+    }
 
     /**
      * 获取有效荷载
