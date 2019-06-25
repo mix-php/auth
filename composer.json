@@ -1,6 +1,6 @@
 {
   "name": "mix/auth",
-  "description": "MixPHP 框架模块 http://www.mixphp.cn",
+  "description": "Mix PHP Auth http://www.mixphp.cn",
   "type": "framework",
   "keywords": [
     "framework",
@@ -18,7 +18,8 @@
   "require": {
     "php": ">=7.0.0",
     "firebase/php-jwt": "^5.0",
-    "mix/bean": "v2.1.x-dev"
+    "mix/bean": "v2.1.x-dev",
+    "mix/http-message": "v2.1.x-dev"
   },
   "autoload": {
     "psr-4": {

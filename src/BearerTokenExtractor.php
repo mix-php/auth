@@ -2,6 +2,8 @@
 
 namespace Mix\Auth;
 
+use Mix\Http\Message\Request\HttpRequestInterface;
+
 /**
  * Class BearerTokenExtractor
  * @package Mix\Auth
@@ -11,12 +13,17 @@ class BearerTokenExtractor implements TokenExtractorInterface
 {
 
     /**
+     * @var HttpRequestInterface
+     */
+    public $request;
+
+    /**
      * 提取token
      * @return bool|string
      */
     public function extractToken()
     {
-        $authorization = \Mix::$app->request->header('authorization');
+        $authorization = $this->request->header('authorization');
         if (strpos($authorization, 'Bearer ') !== 0) {
             return false;
         }
