@@ -2,7 +2,7 @@
 
 namespace Mix\Auth;
 
-use Mix\Http\Message\Request\HttpRequestInterface;
+use Psr\Http\Message\MessageInterface;
 
 /**
  * Class BearerTokenExtractor
@@ -13,7 +13,7 @@ class BearerTokenExtractor implements TokenExtractorInterface
 {
 
     /**
-     * @var HttpRequestInterface
+     * @var MessageInterface
      */
     public $request;
 
@@ -23,7 +23,7 @@ class BearerTokenExtractor implements TokenExtractorInterface
      */
     public function extractToken()
     {
-        $authorization = $this->request->header('authorization');
+        $authorization = $this->request->getHeaderLine('authorization');
         if (strpos($authorization, 'Bearer ') !== 0) {
             return false;
         }
