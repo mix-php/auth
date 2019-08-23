@@ -1,6 +1,7 @@
 <?php
 
 namespace Mix\Auth;
+
 use Mix\Bean\BeanInjector;
 
 /**
@@ -56,10 +57,10 @@ class JWT
 
     /**
      * 获取有效载荷
-     * @param $token
+     * @param string $token
      * @return array
      */
-    public function parser($token)
+    public function parser(string $token)
     {
         switch ($this->algorithm) {
             case self::ALGORITHM_HS256:

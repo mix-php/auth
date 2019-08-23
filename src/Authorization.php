@@ -2,7 +2,7 @@
 
 namespace Mix\Auth;
 
-use Mix\Bean\BeanInjector;
+use Mix\Auth\JWT;
 
 /**
  * Class Authorization
@@ -13,33 +13,28 @@ class Authorization
 {
 
     /**
-     * token提取器
-     * @var \Mix\Auth\TokenExtractorInterface
-     */
-    public $tokenExtractor;
-
-    /**
      * jwt
-     * @var \Mix\Auth\JWT
+     * @var JWT
      */
     public $jwt;
 
     /**
      * Authorization constructor.
-     * @param array $config
+     * @param JWT $jwt
      */
-    public function __construct(array $config = [])
+    public function __construct(JWT $jwt)
     {
-        BeanInjector::inject($this, $config);
+        $this->jwt = $jwt;
     }
 
     /**
      * 获取有效荷载
+     * @param TokenExtractorInterface $tokenExtractor
      * @return array
      */
-    public function getPayload()
+    public function getPayload(TokenExtractorInterface $tokenExtractor)
     {
-        $token = $this->tokenExtractor->extractToken();
+        $token = $tokenExtractor->extractToken();
         if (!$token) {
             throw new \InvalidArgumentException('Failed to extract token.');
         }

@@ -18,6 +18,15 @@ class BearerTokenExtractor implements TokenExtractorInterface
     public $request;
 
     /**
+     * BearerTokenExtractor constructor.
+     * @param MessageInterface $request
+     */
+    public function __construct(MessageInterface $request)
+    {
+        $this->request = $request;
+    }
+
+    /**
      * 提取token
      * @return bool|string
      */
