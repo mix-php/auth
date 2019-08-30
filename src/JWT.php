@@ -60,7 +60,7 @@ class JWT
      * @param string $token
      * @return array
      */
-    public function parser(string $token)
+    public function parse(string $token)
     {
         switch ($this->algorithm) {
             case self::ALGORITHM_HS256:

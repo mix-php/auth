@@ -38,7 +38,7 @@ class Authorization
         if (!$token) {
             throw new \InvalidArgumentException('Failed to extract token.');
         }
-        return $this->jwt->parser($token);
+        return $this->jwt->parse($token);
     }
 
     /**
