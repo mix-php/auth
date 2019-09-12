@@ -56,7 +56,7 @@ class Jwt
     }
 
     /**
-     * 获取有效载荷
+     * 解析Token
      * @param string $token
      * @return array
      */
