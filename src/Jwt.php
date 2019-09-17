@@ -5,11 +5,11 @@ namespace Mix\Auth;
 use Mix\Bean\BeanInjector;
 
 /**
- * Class Jwt
+ * Class JWT
  * @package Mix\Auth
  * @author liu,jian <coder.keda@gmail.com>
  */
-class Jwt
+class JWT
 {
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Mix\Auth;
 
-use Mix\Auth\Jwt;
+use Mix\Auth\JWT;
 
 /**
  * Class Authorization
@@ -14,15 +14,15 @@ class Authorization
 
     /**
      * jwt
-     * @var Jwt
+     * @var JWT
      */
     public $jwt;
 
     /**
      * Authorization constructor.
-     * @param Jwt $jwt
+     * @param JWT $jwt
      */
-    public function __construct(Jwt $jwt)
+    public function __construct(JWT $jwt)
     {
         $this->jwt = $jwt;
     }
