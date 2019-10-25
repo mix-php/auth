@@ -47,10 +47,10 @@ class JWT
     public $algorithm = self::ALGORITHM_HS256;
 
     /**
-     * Authorization constructor.
+     * JWT constructor.
      * @param array $config
      */
-    public function __construct(array $config)
+    public function __construct(array $config = [])
     {
         BeanInjector::inject($this, $config);
     }

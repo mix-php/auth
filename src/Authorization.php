@@ -2,8 +2,6 @@
 
 namespace Mix\Auth;
 
-use Mix\Auth\JWT;
-
 /**
  * Class Authorization
  * @package Mix\Auth
