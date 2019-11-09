@@ -2,6 +2,7 @@
 
 namespace Mix\Auth;
 
+use Mix\Auth\Exception\ExtractTokenException;
 use Psr\Http\Message\MessageInterface;
 
 /**
@@ -28,13 +29,13 @@ class BearerTokenExtractor implements TokenExtractorInterface
 
     /**
      * 提取token
-     * @return bool|string
+     * @return string
      */
     public function extractToken()
     {
         $authorization = $this->request->getHeaderLine('authorization');
         if (strpos($authorization, 'Bearer ') !== 0) {
-            return false;
+            throw new ExtractTokenException('Failed to extract token.');
         }
         return substr($authorization, 7);
     }

@@ -33,9 +33,7 @@ class Authorization
     public function getPayload(TokenExtractorInterface $tokenExtractor)
     {
         $token = $tokenExtractor->extractToken();
-        if (!$token) {
-            throw new \InvalidArgumentException('Failed to extract token.');
-        }
+
         return $this->jwt->parse($token);
     }
 

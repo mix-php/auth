@@ -12,7 +12,7 @@ interface TokenExtractorInterface
 
     /**
      * 提取token
-     * @return bool|string
+     * @return string
      */
     public function extractToken();
 
